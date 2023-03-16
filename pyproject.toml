@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "incolume.py.fictus"
-version = "0.10.0"
+name = "model_2023_03_16"
+version = "1.0.0a0"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 readme = "README.md"
 packages = [
-    {include='incolume/py', from=''}
+    {include='incolume', from=''}
 ]
 classifiers = [
   'Development Status :: 5 - Production/Stable',
