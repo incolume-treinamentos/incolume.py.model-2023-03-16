@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "model_2023_03_16"
-version = "1.0.0a0"
+version = "1.0.0a1"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 readme = "README.md"
@@ -321,7 +321,7 @@ use_vars = true
 
 [tool.taskipy.variables]
 PYTHON_VERSION= '3.9'
-path = "path/to/my_module"
+PATH = "path/to/my_module"
 URLCOMPARE = "https://github.com/incolumepy/incolume.py.fictus/compare"
 CHANGELOGFILE = 'CHANGELOG.md'
 
@@ -337,6 +337,6 @@ pre_clean = 'echo -n "Starting cleanning environment .. "'
 pre_clean-all = 'clean && echo "Starting Deep cleanning .."'
 premajor = {help='Update premajor version', cmd='v=$(poetry version premajor) && poetry run task test && git ci -m "$v" pyproject.toml `find incolume* -name version.txt`'}
 preminor = {help='Update preminor version', cmd='v=$(poetry version preminor) && poetry run task test && git ci -m "$v" pyproject.toml `find incolume* -name version.txt`'}
-prerelease = {help='Update prerelease version', cmd='V=$(poetry version prerelease) && poetry run task test && git ci -m "${V}" pyproject.toml `find incolume* -name version.txt`'}
+prerelease = {help='Update prerelease version', cmd='V=$(poetry version prerelease) && poetry run task test && git ci -m "$V" pyproject.toml `find incolume* -name version.txt`'}
 setup = {'help' = 'setup dev environment python with poetry end install all dependences', cmd='poetry env use {PYTHON_VERSION}; git config core.hooksPath .git-hooks; poetry install'}
 test = { cmd = "poetry run pytest -vv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml", help = "runs all unit tests and geranerate coverage report." }
