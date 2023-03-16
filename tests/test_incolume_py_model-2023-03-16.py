@@ -2,7 +2,7 @@
 
 import re
 
-from incolume.py.fictus import __version__
+from incolume.py.model_2023_03_16 import __version__
 
 
 def test_version():

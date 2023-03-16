@@ -65,6 +65,7 @@ pylint = "^2.15.6"
 tox = "^3.27.1"
 pytest-mock = "^3.10.0"
 pylama = {extras = ["all"], version = "^8.4.1"}
+taskipy = "^1.10.3"
 
 
 [tool.poetry.group.doc.dependencies]
@@ -314,3 +315,28 @@ commands = poetry run black --check incolume/ tests/
 [testenv:safety]
 commands = poetry run safety check
 """
+
+[tool.taskipy.settings]
+use_vars = true
+
+[tool.taskipy.variables]
+PYTHON_VERSION= '3.9'
+path = "path/to/my_module"
+URLCOMPARE = "https://github.com/incolumepy/incolume.py.fictus/compare"
+CHANGELOGFILE = 'CHANGELOG.md'
+
+[tool.taskipy.tasks]
+changelog={help='Update changelog file', cmd='poetry run python -c "from incolumepy.utils import update_changelog; update_changelog({CHANGELOGFILE}, urlcompare={URLCOMPARE})"; echo "CHANGELOG file updated with success."'}
+clean = {'help'= 'Shallow clean into environment (.pyc, .cache, .egg, .log, et all)', cmd='find ./ \( -name "*.pyc" -o -name "*~" -o -name "Thumbs.db" -o -name "*.log" -o -name "*.log.*" -o -name ".cache" -o -name "*.egg-info" -o -name "*.coverage" \) -exec rm -f {} \;'}
+clean-all = {'help'='Deep cleanning into environment (dist, build, htmlcov, .tox, *_cache, et all)', 'cmd'='rm -rf dist build htmlcov coverage_report .tox; find ./ \( -name "*_cache" -o -name "*cache__" \) -exec rm -rf {} 2> /dev/null \; '}
+clean-env={help = 'Drop poetry virtual environments', cmd='poetry env list|awk "{print $$1}"|while read a; do poetry env remove $${a} 2> /dev/null && echo "$${a} removed."|| echo "$${a} not removed."; done'}
+patch = {help='Update patch version', cmd='v=$(poetry version patch) && poetry run task test && git ci -m "$v" pyproject.toml `find incolume* -name version.txt`'}
+post_clean = 'echo "finished cleaning environment!"'
+post_clean-all='poetry task clean-env; echo "Deep cleaning finished!"'
+pre_clean = 'echo -n "Starting cleanning environment .. "'
+pre_clean-all = 'clean && echo "Starting Deep cleanning .."'
+premajor = {help='Update premajor version', cmd='v=$(poetry version premajor) && poetry run task test && git ci -m "$v" pyproject.toml `find incolume* -name version.txt`'}
+preminor = {help='Update preminor version', cmd='v=$(poetry version preminor) && poetry run task test && git ci -m "$v" pyproject.toml `find incolume* -name version.txt`'}
+prerelease = {help='Update prerelease version', cmd='V=$(poetry version prerelease) && poetry run task test && git ci -m "${V}" pyproject.toml `find incolume* -name version.txt`'}
+setup = {'help' = 'setup dev environment python with poetry end install all dependences', cmd='poetry env use {PYTHON_VERSION}; git config core.hooksPath .git-hooks; poetry install'}
+test = { cmd = "poetry run pytest -vv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml", help = "runs all unit tests and geranerate coverage report." }
