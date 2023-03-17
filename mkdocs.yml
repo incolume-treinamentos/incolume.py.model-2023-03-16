@@ -1,0 +1,49 @@
+site_name: Modelo de Projeto Python
+repo_url: https://github.com/incolume-treinamentos/incolume.py.model-2023-03-16
+repo_name: model-2023-03-16 
+edit_uri: tree/dev/docs
+
+theme:
+  name: material
+  language: pt-BR
+  logo: asserts/img/jedi_logo.png
+  favicon: asserts/img/jedi_logo.png
+
+nav:
+    - Home: 'prefacio.md'
+    - Installation: 'INSTALLATION.md'
+    - Usage: 'usage.md'
+    - Contributing: 'development.md'
+    - Authors: 'CONTRIBUTORS.md'
+    - History: 'HISTORY.md'
+    - API: 
+      - Module Principal: 'API/API.md'
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.tasklist
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+watch:
+   - incolume
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [incolume]
+
+extra:
+  commands:
+    run: incolume
