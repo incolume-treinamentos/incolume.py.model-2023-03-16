@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "model_2023_03_16"
+name = "incolume.py.model_2023_03_16"
 version = "1.0.0a1"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
@@ -208,7 +208,8 @@ disable = [
     "unused-argument",
 
     # Disable checking that method could be a function in classes (often used for organisation).
-    "no-self-use",
+    # foi movido para uma extensão opcional, consulte https://pylint.readthedocs.io/en/latest/whatsnew/2/2.14/summary.html
+    # "no-self-use",
 
     # Disable failure for TODO items in the codebase (code will always have TODOs).
     "fixme",
@@ -322,8 +323,9 @@ use_vars = true
 [tool.taskipy.variables]
 PYTHON_VERSION= '3.9'
 PATH = "path/to/my_module"
-URLCOMPARE = "https://github.com/incolumepy/incolume.py.fictus/compare"
+URLCOMPARE = "https://github.com/incolumepy/incolume.py.model-2023-03-16/compare"
 CHANGELOGFILE = 'CHANGELOG.md'
+DIRECTORIES = './incolume ./tests'
 
 [tool.taskipy.tasks]
 changelog={help='Update changelog file', cmd='poetry run python -c "from incolumepy.utils import update_changelog; update_changelog({CHANGELOGFILE}, urlcompare={URLCOMPARE})"; echo "CHANGELOG file updated with success."'}
