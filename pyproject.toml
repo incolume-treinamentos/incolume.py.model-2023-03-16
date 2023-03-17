@@ -331,6 +331,7 @@ clean = {'help'= 'Shallow clean into environment (.pyc, .cache, .egg, .log, et a
 clean-all = {'help'='Deep cleanning into environment (dist, build, htmlcov, .tox, *_cache, et all)', 'cmd'='rm -rf dist build htmlcov coverage_report .tox; find ./ \( -name "*_cache" -o -name "*cache__" \) -exec rm -rf {} 2> /dev/null \; '}
 clean-env={help = 'Drop poetry virtual environments', cmd='poetry env list|awk "{print $$1}"|while read a; do poetry env remove $${a} 2> /dev/null && echo "$${a} removed."|| echo "$${a} not removed."; done'}
 patch = {help='Update patch version', cmd='v=$(poetry version patch) && poetry run task test && git ci -m "$v" pyproject.toml `find incolume* -name version.txt`'}
+prepatch = {help='Update prepatch version', cmd='v=$(poetry version prepatch) && poetry run task test && git ci -m "$v" pyproject.toml `find incolume* -name version.txt`'}
 post_clean = 'echo "finished cleaning environment!"'
 post_clean-all='poetry task clean-env; echo "Deep cleaning finished!"'
 pre_clean = 'echo -n "Starting cleanning environment .. "'
