@@ -328,6 +328,14 @@ CHANGELOGFILE = 'CHANGELOG.md'
 DIRECTORIES = './incolume ./tests'
 
 [tool.taskipy.tasks]
+check-black = 'poetry run black --check {DIRECTORIES}'
+check-isort = 'poetry run isort --check --atomic --py all {DIRECTORIES}'
+check-pydocstyle = 'poetry run pydocstyle {DIRECTORIES}'
+check-mypy = 'poetry run mypy ./incolume'
+check-pylama = 'poetry run pylama {DIRECTORIES}'
+check-pylint = 'poetry run pylint {DIRECTORIES}'
+pre_lint = 'poetry run task check-mypy && poetry run task check-isort && poetry run task check-black && poetry run task check-pydocstyle && poetry run task check-pylint && poetry run task check-pylama'
+lint = {help='Apply linters verifications', cmd=''}
 changelog={help='Update changelog file', cmd='poetry run python -c "from incolumepy.utils import update_changelog; update_changelog({CHANGELOGFILE}, urlcompare={URLCOMPARE})"; echo "CHANGELOG file updated with success."'}
 clean = {'help'= 'Shallow clean into environment (.pyc, .cache, .egg, .log, et all)', cmd='find ./ \( -name "*.pyc" -o -name "*~" -o -name "Thumbs.db" -o -name "*.log" -o -name "*.log.*" -o -name ".cache" -o -name "*.egg-info" -o -name "*.coverage" \) -exec rm -f {} \;'}
 clean-all = {'help'='Deep cleanning into environment (dist, build, htmlcov, .tox, *_cache, et all)', 'cmd'='rm -rf dist build htmlcov coverage_report .tox; find ./ \( -name "*_cache" -o -name "*cache__" \) -exec rm -rf {} 2> /dev/null \; '}
