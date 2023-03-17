@@ -1,4 +1,4 @@
-# Incolume Python Fictus #
+# Modelo de projetos Python
 
 ---
 
@@ -14,10 +14,10 @@ pylint, mypy, pydocstyle, incluindo o pacote security para monitoramento de
 segurança.
 
 ## Uso ##
-Disponível em [docs/usage.rst](usage.md).
+Disponível em [usage.md](usage.md).
 
 ## Exemplos ##
-Disponível em [docs/examples/EXAMPLES.rst](examples/EXAMPLES.rst).
+Disponível em [examples/EXAMPLES.md](examples/EXAMPLES.md).
 
 
 ## Registro de Mudanças ##
@@ -25,7 +25,7 @@ Disponível em [CHANGELOG.md](CHANGELOG.md).
 
 
 ## Contribuidores ##
-Disponível em [docs/CONTRIBUTORS.md](CONTRIBUTORS.md).
+Disponível em [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
 
 ## Tecnologias aplicadas ##

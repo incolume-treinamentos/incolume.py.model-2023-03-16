@@ -4,18 +4,19 @@ O desenvolvimento deste projeto segue algumas regras e convenções
 básicas. Como 'estilo de formatação de código',
 
 ## Código de conduta ##
-Detalhes em [docs/code_of_conduct.md](extra/code_of_conduct.md).
+Detalhes em [docs/extra/code_of_conduct.md](extra/code_of_conduct.md).
 
 ## Padrões aplicados ##
 Este projeto segue as recomendações:
-- [Python - A Linguagem de programação do projeto](http://www.python.org/doc)
-- [Zen do Python - PEP20](extra/zenpy.md)
-- [Estilo de codificação Python - PEP8](https://pep8.org/)
-- [RST - Restructuredtext](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html)
-- [MD - Markedown](https://www.markdownguide.org/basic-syntax/)
-- [Versionamento Semântico (SemVer)](https://semver.org/lang/pt-BR/)
-- [GIT Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)
-- [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+
+  - [Python - A Linguagem de programação do projeto](http://www.python.org/doc)
+  - [Zen do Python - PEP20](extra/zenpy.md)
+  - [Estilo de codificação Python - PEP8](https://pep8.org/)
+  - [RST - Restructuredtext](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html)
+  - [MD - Markedown](https://www.markdownguide.org/basic-syntax/)
+  - [Versionamento Semântico (SemVer)](https://semver.org/lang/pt-BR/)
+  - [GIT Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)
+  - [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Prerequisitos ##
 - Sistema Operacional (Linux preferencialmente)
@@ -24,16 +25,23 @@ Este projeto segue as recomendações:
 - pyenv
 - pip or poetry (preferencialmente)
 
-## Qualidade de Código ##
+
+## Documentação de projeto
+- mkdocs
+- mkdocs-
+
+
+## Qualidade de Código
 É utilizado de ferramentas validadoras de qualidade de código estático,
 também denominadas linters.
 Há uso das seguintes:
-- black
-- isort
-- mypy
-- pydocstyle
-- pylame
-- pylint
+
+  - black
+  - isort
+  - mypy
+  - pydocstyle
+  - pylame
+  - pylint
 
 ## Segurança ##
 Também há preocupação com a segurança do código implementado, o pacote

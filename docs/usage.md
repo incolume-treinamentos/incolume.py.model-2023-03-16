@@ -39,8 +39,8 @@ To install incolumepy.lex, using pip:
 
 ## Detalhes da API ##
 
-Disponível em [docs/api.rst](api)
+Disponível em [docs/API](API/API.md)
 
 
 ## Detalhes para desenvolvimento ##
-Disponível em [docs/development.md](development)
+Disponível em [docs/development.md](development.md)

@@ -1,5 +1,5 @@
-# PEP 20 #
-## [ZEN do Python](https://www.python.org/dev/peps/pep-0020/) ##
+# PEP 20 
+## [ZEN do Python](https://www.python.org/dev/peps/pep-0020/)
 
 - Bonito é melhor que feio.
 - Explícito é melhor que implícito.
