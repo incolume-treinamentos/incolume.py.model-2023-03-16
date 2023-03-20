@@ -157,7 +157,7 @@ Executa todas as verificações diponíveis contidas no `tox`.
 tox -e ALL
 ```
 
-### Makefile ###
+### GNU Make ###
 O `Makefile` foi personalizado para rodar com as opções necessárias.
 Com o help você verá todas as opções.
 ```shell

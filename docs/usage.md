@@ -1,5 +1,5 @@
 # Guia de Uso
-## Instalação ##
+## Instalação
 
 To install it using poetry:
 
