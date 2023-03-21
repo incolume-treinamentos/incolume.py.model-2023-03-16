@@ -6,12 +6,7 @@ Update metadata from version by semver
 import logging
 from pathlib import Path
 
-try:
-    from tomli import load
-except (ImportError, ModuleNotFoundError) as e:
-    logging.error(e)
-    from tomlib import load
-
+from tomli import load  # from Python3.11 use pack tomlib
 
 configfile = Path(__file__).parents[3].joinpath("pyproject.toml")
 versionfile = Path(__file__).parent.joinpath("version.txt")

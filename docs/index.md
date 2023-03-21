@@ -1,17 +1,34 @@
-# Welcome to MkDocs
+# Modelo de projetos Python
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+---
 
-## Commands
+## Objetivos ##
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Desenvolvido com propósito de padrão estrutural de novos pacotes.
 
-## Project layout
+## Descrição ##
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Neste pacote foi aplicado githooks, tox, Makefile para automação de etapas, e
+também possuí ferramentas para Quality Assurance (QA) tais como black, pylama,
+pylint, mypy, pydocstyle, incluindo o pacote security para monitoramento de
+segurança.
+
+## Uso ##
+Disponível em [usage.md](usage.md).
+
+## Exemplos ##
+Disponível em [examples/EXAMPLES.md](examples/EXAMPLES.md).
+
+
+## Registro de Mudanças ##
+Disponível em [CHANGELOG.md](CHANGELOG.md).
+
+
+## Contribuidores ##
+Disponível em [CONTRIBUTORS.md](CONTRIBUTORS.md).
+
+
+## Tecnologias aplicadas ##
+Deseja aprender mais sobre alguns dos requisitos
+não funcionais utilizados no projeto?
+Consulte a sessão [Padrões Aplicados em Guia de Contribuíção](development.md).
