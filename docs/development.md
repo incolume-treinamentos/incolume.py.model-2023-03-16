@@ -17,18 +17,24 @@ Este projeto segue as recomendações:
   - [Versionamento Semântico (SemVer)](https://semver.org/lang/pt-BR/)
   - [GIT Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)
   - [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+  - [Pytest](https://docs.pytest.org/en/7.1.x/how-to/doctest.html)
 
 ## Prerequisitos ##
 - Sistema Operacional (Linux preferencialmente)
 - git client
 - python 3.8+
 - pyenv
-- pip or poetry (preferencialmente)
+- poetry (preferencialmente) or pip
 
 
 ## Documentação de projeto
-- mkdocs
-- mkdocs-
+- Para documentação é utilizada a suite de documentação mkdocs.
+  [Detalhes na documentação oficial](mkdocs.md).
+- Atualize a documentação com o comando:
+
+    ```bash
+    poetry run task docs
+    ``` 
 
 
 ## Qualidade de Código
@@ -43,24 +49,36 @@ Há uso das seguintes:
   - pylame
   - pylint
 
-## Segurança ##
-Também há preocupação com a segurança do código implementado, o pacote
-`safety` é utilizado para o monitoramento de pacotes.
+### linters
+Para executar todos os linters de uma vez, utilize o comando:
+
+```shell
+poetry run task lint
+```
 
 ### black ###
 O `black` é classificado como Autoformator, são programas que
 refatoram seu código para se adequar ao PEP 8 automaticamente.
+```shell
+poetry run task check-black
+```
 ```shell
 black --check incolumepy tests
 ```
 ### pylama ###
 O `pylama` é um envolucro que contém: PyFlakes, pycodestyle, McCabe.
 ```shell
+poetry run task check-pylama
+```
+```shell
 pylama incolumepy tests
 ```
 ### isort ###
 O `isort` é um utilitário para classificar as importações
 em ordem alfabética e separadas automaticamente em seções e por tipo.
+```shell
+poetry run task check-isort
+```
 ```shell
 isort incolumepy tests
 ```
@@ -71,6 +89,9 @@ analisando o código, sem precisar executá-lo.
 Ele possui um poderoso sistema de tipos com recursos como
 inferência de tipos, digitação gradual, genéricos e tipos de união.
 ```shell
+poetry run task check-mypy
+```
+```shell
 mypy incolumepy
 ```
 ### pydocstyle ###
@@ -78,6 +99,9 @@ O `pydocstyle` é uma ferramenta de análise estática para verificar a
 conformidade com as convenções docstring do Python. Ele suporta a maior
 parte do PEP 257, entretanto não deve ser considerado uma
 implementação de referência.
+```shell
+poetry run task check-pydocstyle
+```
 ```shell
 pydocstyle incolumepy tests
 ```
@@ -91,13 +115,23 @@ arquivo de configuração. Também é possível escrever seus próprios plugins
 para adicionar suas próprias verificações ou para estender o `pylint`
 de uma forma ou de outra.
 ```shell
+poetry run task check-pylint
+```
+```shell
 pylint incolumepy tests
 ```
+## Segurança ##
+Também há preocupação com a segurança do código implementado, o pacote
+`safety` é utilizado para o monitoramento de pacotes.
+
 ### safety ###
 O `safety` verifica as dependências instaladas quanto a vulnerabilidades
 de segurança conhecidas.
 Por padrão, ele usa o banco de dados de vulnerabilidades Python aberto
 [Safety DB](https://github.com/pyupio/safety-db).
+```shell
+poetry run task check-safety
+```
 ```shell
 safety check
 ```
@@ -156,6 +190,45 @@ Executa todas as verificações diponíveis contidas no `tox`.
 ```shell
 tox -e ALL
 ```
+
+### Taskipy
+Em substituição ao GNU Make, faz-se o uso do taskipy, 
+uma ferramenta de automação em linguagem python,
+que permite implementar scripts de forma simples, 
+sem aumentar a complexidade do ambiente de desenvolvimento.
+
+Uso base:
+```shell
+poetry run task [command]
+```
+
+Principais comandos implementados:
+
+```shell
+poetry run task -l
+
+check-black      poetry run black --check {DIRECTORIES}
+check-isort      poetry run isort --check --atomic --py all {DIRECTORIES}
+check-pydocstyle poetry run pydocstyle {DIRECTORIES}
+check-mypy       poetry run mypy ./incolume
+check-pylama     poetry run pylama {DIRECTORIES}
+check-pylint     poetry run pylint {DIRECTORIES}
+check-safety     poetry run safety check
+lint             Apply linters verifications
+changelog        Update changelog file
+clean            Shallow clean into environment (.pyc, .cache, .egg, .log, et all)
+clean-all        Deep cleanning into environment (dist, build, htmlcov, .tox, *_cache, et all)
+clean-env        Drop poetry virtual environments
+docs             Generate documentation
+patch            Update patch version
+prepatch         Update prepatch version
+premajor         Update premajor version
+preminor         Update preminor version
+prerelease       Update prerelease version
+setup            setup dev environment python with poetry end install all dependences
+test             runs all unit tests and geranerate coverage report.
+```
+
 
 ### GNU Make ###
 O `Makefile` foi personalizado para rodar com as opções necessárias.

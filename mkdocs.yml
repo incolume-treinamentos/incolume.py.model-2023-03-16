@@ -10,14 +10,17 @@ theme:
   favicon: asserts/img/jedi_logo.png
 
 nav:
-    - Home: 'prefacio.md'
+    - Home: 'index.md'
+    - About:
+      - 'HISTORY.md'
+      - 'License': 'https://raw.githubusercontent.com/incolume-treinamentos/incolume.py.model-2023-03-16/main/LICENSE'
+      - 'Release Notes': CHANGELOG.md
     - Installation: 'INSTALLATION.md'
     - Usage: 'usage.md'
     - Contributing: 'development.md'
     - Authors: 'CONTRIBUTORS.md'
-    - History: 'HISTORY.md'
     - API: 
-      - Module Principal: 'API/API.md'
+      - Module Principal: 'API/principal.md'
 
 markdown_extensions:
   - attr_list
@@ -42,7 +45,7 @@ plugins:
 - mkdocstrings:
     handlers:
       python:
-        paths: [incolume]
+        paths: [incolume.py.model_2023_03_16]
 
 extra:
   commands:
